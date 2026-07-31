@@ -8,7 +8,7 @@
 - JavaScript
 
 ## 公開URL
-https://.github.io/my-profile/
+https://.github.io/heso710soul-ctrl/test
 
 ## 作者
 へそ
