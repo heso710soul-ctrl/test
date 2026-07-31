@@ -1,0 +1,63 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.profile-card {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.job {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.info p {
+  text-align: left;
+  margin: 8px 0;
+  color: #555;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #357ab8;
+}
+
+#message {
+  margin-top: 10px;
+  color: #4a90e2;
+  font-weight: bold;
+}
