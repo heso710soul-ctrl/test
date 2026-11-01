@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>せんだいファミリー整骨院｜仙台市青葉区 上杉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#4a4442;
+  --sub:#8b8380;
+  --line:#ebe4df;
+  --bg:#fff;
+  --cream:#fbf6f2;
+  --accent1:#e58aa8;
+  --accent2:#a58bd8;
+  --grad:linear-gradient(100deg,var(--accent1),var(--accent2));
+  --mincho:"Shippori Mincho",serif;
+  --gothic:"Zen Kaku Gothic New",sans-serif;
+  --en:"Cormorant Garamond",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--gothic);font-size:15px;line-height:2;letter-spacing:.08em;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.en{font-family:var(--en);font-style:italic;letter-spacing:.06em}
+.wrap{width:min(1080px,100% - 48px);margin-inline:auto}
+
+/* ---------- header ---------- */
+.hd{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;transition:background .4s,padding .4s}
+.hd.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(10px);padding:12px 40px}
+.logo{font-family:var(--mincho);font-size:17px;line-height:1.4;letter-spacing:.14em}
+.logo small{display:block;font-family:var(--en);font-style:italic;font-size:12px;color:var(--sub);letter-spacing:.1em}
+.hd-r{display:flex;align-items:center;gap:26px}
+.tel{font-family:var(--en);font-size:22px;letter-spacing:.08em}
+.tel span{font-size:12px;margin-right:4px}
+.pill{display:inline-flex;align-items:center;gap:14px;padding:12px 30px;border-radius:99px;background:#fff;box-shadow:0 6px 24px rgba(165,139,216,.18);font-size:13px;transition:transform .3s,box-shadow .3s}
+.pill:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(229,138,168,.28)}
+.pill i{font-style:normal;font-family:var(--en)}
+.burger{width:44px;height:18px;position:relative;cursor:pointer;background:none;border:0}
+.burger::before,.burger::after,.burger span{content:"";position:absolute;left:0;width:100%;height:1px;background:var(--ink)}
+.burger::before{top:0}.burger span{top:8px}.burger::after{bottom:0}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden}
+.hero-img{position:absolute;inset:0;background:url(https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/9D458422-DD9F-43AD-9FDE-3E1E7ECEE8B2.jpeg) 65% 40%/cover;animation:zoom 14s ease-out forwards}
+@keyframes zoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.6) 32%,rgba(255,255,255,0) 58%)}
+.hero-copy{position:absolute;z-index:2;left:56px;top:50%;transform:translateY(-42%);font-family:var(--mincho)}
+.hero-copy h1{font-size:15px;font-weight:500;line-height:1.9;margin-bottom:34px}
+.hero-copy p{font-size:13.5px;line-height:2;color:var(--ink);margin-bottom:18px;font-family:var(--gothic)}
+.hero-catch{font-family:var(--mincho);font-size:clamp(28px,3.4vw,44px);line-height:1.6;letter-spacing:.16em;margin-bottom:34px;font-weight:500}
+.hero-mark{position:absolute;z-index:2;right:60px;bottom:90px;text-align:right;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.25)}
+.hero-mark b{display:block;font-family:var(--mincho);font-weight:500;font-size:22px;letter-spacing:.3em}
+.hero-mark span{font-family:var(--en);font-style:italic;font-size:15px;letter-spacing:.12em}
+.wave{position:absolute;left:0;right:0;bottom:-1px;z-index:3;width:100%;height:60px}
+.scroll{position:absolute;z-index:4;left:50%;bottom:24px;font-family:var(--en);font-size:11px;letter-spacing:.3em;color:var(--sub);writing-mode:vertical-rl;padding-bottom:50px}
+.scroll::after{content:"";position:absolute;left:50%;bottom:0;width:1px;height:44px;background:var(--sub);animation:line 2s infinite}
+@keyframes line{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- index nav ---------- */
+.inav{padding:70px 0 40px}
+.inav ul{display:grid;grid-template-columns:repeat(8,1fr);border-bottom:1px solid var(--line)}
+.inav a{display:block;padding:14px 4px 18px;font-size:12.5px;line-height:1.6;transition:color .3s}
+.inav a .en{display:block;font-size:12px;color:var(--accent1)}
+.inav a:hover{color:var(--accent2)}
+
+/* ---------- news ---------- */
+.news{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:60px 0 100px}
+.h-sm{font-family:var(--mincho);font-size:17px;font-weight:500}
+.news li{border-bottom:1px solid var(--line)}
+.news li a{display:grid;grid-template-columns:24px 120px 1fr;padding:20px 0;font-size:14px;transition:padding .3s}
+.news li a:hover{padding-left:8px}
+.news time{font-family:var(--en);font-size:15px;color:var(--sub)}
+.news .arw{color:var(--sub)}
+
+/* ---------- reason (floating photos) ---------- */
+.reason{position:relative;height:880px;overflow:hidden}
+.reason .center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:30px}
+.vt{writing-mode:vertical-rl;font-family:var(--mincho);font-size:26px;line-height:2.1;letter-spacing:.24em;font-weight:500}
+.vt em{font-style:normal}
+.blob{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#fbe3ec 0%,rgba(251,227,236,0) 70%);filter:blur(4px)}
+.vline{width:1px;height:90px;background:linear-gradient(var(--sub),transparent)}
+.fl{position:absolute;width:var(--w);aspect-ratio:25/18;border-radius:22px;overflow:hidden;box-shadow:0 16px 40px rgba(74,68,66,.08);animation:float 8s ease-in-out infinite}
+.fl img{width:100%;height:100%;object-fit:cover}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* ---------- experts ---------- */
+.experts{position:relative;background:var(--cream);padding:130px 0 150px;overflow:hidden}
+.experts::before,.experts::after{content:"";position:absolute;left:-5%;width:110%;height:120px;background:#fff;border-radius:50%}
+.experts::before{top:-80px}.experts::after{bottom:-80px}
+.experts .lead{text-align:center;font-family:var(--mincho);font-size:22px;line-height:2;margin-bottom:70px}
+.track{display:flex;gap:70px;width:max-content;animation:slide 50s linear infinite}
+.experts:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.ex{width:300px;text-align:center}
+.ex .role{font-size:12px;margin-bottom:16px}
+.ex .ph{width:220px;height:300px;margin:0 auto 26px;border-radius:120px;overflow:hidden}
+.ex .ph img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.ex q{display:block;font-family:var(--mincho);font-size:18px;line-height:1.8;quotes:none}
+.ex q::before{content:"“ ";font-family:var(--en)}.ex q::after{content:" ”";font-family:var(--en)}
+.ex .nm{font-family:var(--en);font-size:13px;color:var(--sub);margin-top:6px}
+.more{display:flex;justify-content:center;margin-top:70px}
+
+/* ---------- message ---------- */
+.msg{padding:150px 0 120px;position:relative}
+.msg-in{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:50px;align-items:center}
+.cap{border-radius:200px;overflow:hidden;aspect-ratio:3/4.6}
+.cap img{width:100%;height:100%;object-fit:cover}
+.cap.l{margin-top:-60px}.cap.r{margin-top:140px}
+.msg-tx h2{font-family:var(--mincho);font-size:28px;font-weight:500;line-height:1.8;margin-bottom:34px;letter-spacing:.14em}
+.msg-tx p{font-size:14px;margin-bottom:22px}
+.msg-tx ul{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 24px}
+.msg-tx li{font-size:12.5px;padding:2px 14px;border:1px solid var(--line);border-radius:99px}
+
+/* ---------- points ---------- */
+.points{padding:40px 0 140px}
+.pt{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:110px}
+.pt:nth-child(even) .pt-img{order:2}
+.pt-img{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/3}
+.pt-img img{width:100%;height:100%;object-fit:cover}
+.pt .pt-num{font-family:var(--en);font-style:italic;font-size:90px;line-height:1;margin-bottom:10px}
+.pt h3{font-family:var(--mincho);font-size:25px;font-weight:500;line-height:1.7;margin-bottom:24px;letter-spacing:.12em}
+.pt p{font-size:14px}
+
+/* ---------- menu ---------- */
+.menu{background:var(--cream);padding:130px 0}
+.sec-h{text-align:center;margin-bottom:70px}
+.sec-h .en{display:block;font-size:46px;line-height:1.1}
+.sec-h h2{font-family:var(--mincho);font-weight:500;font-size:16px;letter-spacing:.2em;margin-top:8px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.card{background:#fff;border-radius:26px;overflow:hidden;transition:transform .4s,box-shadow .4s}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(165,139,216,.15)}
+.card .im{aspect-ratio:4/3;overflow:hidden}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover .im img{transform:scale(1.05)}
+.card .bd{padding:30px 30px 36px}
+.card h3{font-family:var(--mincho);font-weight:500;font-size:19px;margin-bottom:12px}
+.card p{font-size:13.5px;color:var(--sub)}
+.card .en{display:block;text-align:right;color:var(--accent1);margin-top:14px}
+
+/* ---------- price ---------- */
+.price{padding:140px 0}
+.camp{position:relative;max-width:820px;margin:0 auto 70px;padding:60px 50px;border-radius:30px;text-align:center;background:linear-gradient(135deg,#fff5f8,#f5f0ff)}
+.camp .tag{display:inline-block;padding:4px 22px;border-radius:99px;background:var(--grad);color:#fff;font-size:12px;letter-spacing:.2em;margin-bottom:20px}
+.camp h3{font-family:var(--mincho);font-weight:500;font-size:22px;margin-bottom:6px}
+.camp .sm{font-size:13px;color:var(--sub)}
+.camp .yen{font-family:var(--mincho);margin:22px 0 10px;font-size:15px}
+.camp .yen s{color:var(--sub)}
+.camp .yen b{font-family:var(--en);font-size:76px;font-weight:500;font-style:normal;margin:0 6px;line-height:1}
+.camp .note{font-size:12px;color:var(--sub)}
+.plist{max-width:820px;margin:0 auto}
+.prow{display:grid;grid-template-columns:1fr auto;gap:20px;padding:30px 0;border-bottom:1px solid var(--line)}
+.prow h4{font-family:var(--mincho);font-weight:500;font-size:18px}
+.prow p{font-size:13px;color:var(--sub);line-height:1.8;margin-top:4px}
+.prow .v{font-family:var(--en);font-size:24px;white-space:nowrap;align-self:center}
+.prow .v small{font-family:var(--gothic);font-size:11px;color:var(--sub);margin-left:4px}
+
+/* ---------- voice ---------- */
+.voice{background:var(--cream);padding:130px 0;position:relative}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.vc{background:#fff;border-radius:26px;padding:22px 22px 30px}
+.vc .im{border-radius:18px;overflow:hidden;aspect-ratio:4/3;margin-bottom:22px}
+.vc .im img{width:100%;height:100%;object-fit:cover}
+.vc h3{font-family:var(--mincho);font-weight:500;font-size:16.5px;line-height:1.7;margin-bottom:12px}
+.vc p{font-size:13px;line-height:1.95;color:var(--ink)}
+.vc .who{font-size:12px;color:var(--sub);margin-top:14px}
+.disc{text-align:center;font-size:11.5px;color:var(--sub);margin-top:30px}
+
+/* ---------- director ---------- */
+.dir{padding:150px 0}
+.dir-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.dir-ph{position:relative}
+.dir-ph .main{border-radius:200px 200px 30px 30px;overflow:hidden;aspect-ratio:3/4}
+.dir-ph .main img{width:100%;height:100%;object-fit:cover;object-position:62% center}
+.dir-ph .sub{position:absolute;right:-40px;bottom:-40px;width:46%;border-radius:22px;overflow:hidden;border:6px solid #fff;aspect-ratio:16/10}
+.dir-ph .sub img{width:100%;height:100%;object-fit:cover}
+.dir .role{font-size:13px;color:var(--sub)}
+.dir h3{font-family:var(--mincho);font-weight:500;font-size:30px;letter-spacing:.2em;margin:4px 0 2px}
+.dir .ruby{font-family:var(--en);font-size:15px;color:var(--accent2);margin-bottom:30px}
+.dir p{font-size:14px;margin-bottom:20px}
+.dir dl{display:grid;grid-template-columns:110px 1fr;font-size:13px;border-top:1px solid var(--line);margin-top:30px}
+.dir dt,.dir dd{padding:12px 0;border-bottom:1px solid var(--line)}
+.dir dt{color:var(--sub)}
+
+/* ---------- reserve / footer ---------- */
+.rsv{position:relative;padding:130px 0;text-align:center;color:#fff;overflow:hidden}
+.rsv::before{content:"";position:absolute;inset:0;background:url(https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/E9A4CA18-8DC5-4270-BF7E-015EB43C63C1.jpeg) center/cover;filter:saturate(.8)}
+.rsv::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(229,138,168,.82),rgba(165,139,216,.82))}
+.rsv>*{position:relative;z-index:1}
+.rsv .en{font-size:50px;line-height:1}
+.rsv h2{font-family:var(--mincho);font-weight:500;font-size:17px;letter-spacing:.2em;margin:10px 0 40px}
+.rsv-btns{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.rsv-btns a{min-width:280px;padding:24px 30px;border-radius:99px;background:#fff;color:var(--ink);transition:transform .3s}
+.rsv-btns a:hover{transform:translateY(-3px)}
+.rsv-btns small{display:block;font-size:12px;color:var(--sub);line-height:1.4}
+.rsv-btns b{font-family:var(--en);font-weight:500;font-size:28px;line-height:1.3}
+.rsv-btns b.jp{font-family:var(--mincho);font-size:19px}
+.rsv .memo{font-size:12.5px;margin-top:30px;opacity:.95}
+
+.ft{padding:110px 0 40px}
+.ft-in{display:grid;grid-template-columns:1fr 1.2fr;gap:70px}
+.ft .logo{font-size:22px;margin-bottom:26px}
+.ft address{font-style:normal;font-size:13.5px;line-height:2}
+.ft .tel{display:block;font-size:30px;margin:14px 0 4px}
+.hours{width:100%;border-collapse:collapse;font-size:13px;text-align:center}
+.hours th,.hours td{padding:14px 4px;border-bottom:1px solid var(--line)}
+.hours th{font-weight:400;color:var(--sub)}
+.hours td:first-child{text-align:left;font-family:var(--en);font-size:15px}
+.hours .o{color:var(--accent1)}
+.hours-note{font-size:12px;color:var(--sub);margin-top:14px}
+.map{margin-top:60px;border-radius:26px;overflow:hidden;height:340px;filter:grayscale(.6) contrast(1.05)}
+.map iframe{width:100%;height:100%;border:0}
+.ft-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;font-size:12.5px;margin:70px 0 30px}
+.copy{text-align:center;font-family:var(--en);font-size:12px;color:var(--sub)}
+
+/* sp fixed bar */
+.spbar{display:none}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity 1.2s ease,transform 1.2s ease}
+.js .rv.on{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  body{font-size:14px}
+  .hd,.hd.scrolled{padding:14px 16px}
+  .hd .tel,.hd .pill{display:none}
+  .hero{height:92vh;min-height:560px}
+  .hero-img{background-position:72% center}
+  .hero::after{background:linear-gradient(180deg,rgba(255,255,255,.0) 30%,rgba(255,255,255,.85) 72%,#fff 100%)}
+  .hero-copy{left:16px;right:16px;top:auto;bottom:70px;transform:none}
+  .hero-copy p:not(.hero-catch),.hero-copy h1{display:none}
+  .hero-catch{font-size:28px;margin-bottom:0}
+  .hero-mark{display:none}
+  .scroll{display:none}
+  .inav{padding:40px 0 10px}
+  .inav ul{grid-template-columns:repeat(4,1fr);border:0}
+  .inav li{border-bottom:1px solid var(--line)}
+  .news{grid-template-columns:1fr;gap:10px;padding:40px 0 70px}
+  .news li a{grid-template-columns:20px 1fr;font-size:13px}
+  .news li a span:last-child{grid-column:2}
+  .reason{height:720px}
+  .reason .center{gap:18px}
+  .vt{font-size:17px;line-height:2}
+  .vline{height:60px}
+  .fl{width:calc(var(--w) * .5);border-radius:14px}
+  .experts{padding:100px 0 110px}
+  .experts .lead{font-size:18px;margin-bottom:50px}
+  .ex{width:230px}.ex .ph{width:170px;height:230px}.ex q{font-size:15.5px}
+  .track{gap:30px}
+  .msg{padding:90px 0 60px}
+  .msg-in{grid-template-columns:1fr 1fr;gap:16px}
+  .msg-tx{grid-column:1/-1;order:-1}
+  .msg-tx h2{font-size:22px}
+  .cap.l,.cap.r{margin-top:0}.cap.r{transform:translateY(40px)}
+  .points{padding:60px 0 50px}
+  .pt{grid-template-columns:1fr;gap:26px;margin-bottom:70px}
+  .pt:nth-child(even) .pt-img{order:0}
+  .pt .pt-num{font-size:64px}.pt h3{font-size:20px}
+  .menu,.voice{padding:90px 0}
+  .sec-h{margin-bottom:46px}.sec-h .en{font-size:36px}
+  .cards,.vgrid{grid-template-columns:1fr;gap:24px}
+  .price{padding:90px 0}
+  .camp{padding:44px 20px}
+  .camp .yen b{font-size:58px}
+  .prow .v{font-size:20px}
+  .dir{padding:90px 0 110px}
+  .dir-in{grid-template-columns:1fr;gap:70px}
+  .dir-ph{width:86%}
+  .dir-ph .sub{right:-14%}
+  .dir h3{font-size:24px}
+  .rsv{padding:90px 0}
+  .rsv .en{font-size:38px}
+  .rsv-btns a{min-width:0;width:100%}
+  .ft{padding:80px 0 100px}
+  .ft-in{grid-template-columns:1fr;gap:40px}
+  .spbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,.06)}
+  .spbar a{padding:14px 0;text-align:center;font-size:13px}
+  .spbar a+a{background:var(--grad);color:#fff}
+}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <a href="#" class="logo">せんだいファミリー整骨院<small>sendai family clinic</small></a>
+  <div class="hd-r">
+    <a href="tel:0222092337" class="tel"><span class="en">tel</span><span class="grad" style="font-size:22px;margin:0">022-209-2337</span></a>
+    <a href="#reserve" class="pill"><span class="grad">LINEでご予約</span><i class="grad">→</i></a>
+    <button class="burger" aria-label="メニュー"><span></span></button>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-copy">
+    <h1>仙台市青葉区 上杉<br>北四番丁・東照宮エリアの整骨院</h1>
+    <p class="hero-catch">その痛み、<br><span class="grad">諦めなくて</span><br>いいんです。</p>
+    <p>原因を見つけて<br>根本から整えていく</p>
+    <p>初回は90分、<br>じっくりお話を聞くところから</p>
+  </div>
+  <div class="hero-mark"><b>せんだいファミリー</b><span>osteopathic &amp; conditioning clinic</span></div>
+  <span class="scroll">scroll</span>
+  <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 60V30C240 0 480 0 720 22s480 40 720 8v30z" fill="#fff"/></svg>
+</section>
+
+<!-- index nav -->
+<nav class="inav wrap rv">
+  <ul>
+    <li><a href="#message"><span class="en">Concept</span>施術の考え方</a></li>
+    <li><a href="#points"><span class="en">Feature</span>選ばれる理由</a></li>
+    <li><a href="#menu"><span class="en">Menu</span>施術メニュー</a></li>
+    <li><a href="#price"><span class="en">Price</span>料金について</a></li>
+    <li><a href="#voice"><span class="en">Voice</span>お客さまの声</a></li>
+    <li><a href="#staff"><span class="en">Staff</span>院長紹介</a></li>
+    <li><a href="#access"><span class="en">Access</span>アクセス</a></li>
+    <li><a href="#reserve"><span class="en">Reserve</span>ご予約</a></li>
+  </ul>
+</nav>
+
+<!-- news -->
+<section class="news wrap rv">
+  <h2 class="h-sm">当院からの<span class="grad">お知らせ</span></h2>
+  <ul>
+    <li><a href="#"><span class="arw">→</span><time>2026.09.18</time><span>シルバーウィーク休業期間のお知らせ</span></a></li>
+    <li><a href="#"><span class="arw">→</span><time>2026.09.03</time><span>ヴォスクオーレ仙台のメディカルパートナーになりました</span></a></li>
+    <li><a href="#"><span class="arw">→</span><time>2026.08.05</time><span>お盆中の営業について〈2026年〉</span></a></li>
+  </ul>
+</section>
+
+<!-- reason (floating) -->
+<section class="reason" id="reasonFloat">
+  <div class="center">
+    <p class="vt rv">せんだいファミリー整骨院には<br><em class="grad">「良くなった」</em>の声が<br>たくさん届いています</p>
+    <div class="blob"></div>
+    <div class="vline"></div>
+  </div>
+</section>
+
+<!-- experts -->
+<section class="experts">
+  <p class="lead rv">全国の整骨院の先生方からも<br><span class="grad">厚い信頼</span>をいただいています</p>
+  <div class="track" id="track">
+    <div class="ex"><p class="role grad">よしだ整骨院 院長・柔道整復師</p><div class="ph"><img src="https://sendai-family-seikotsuin.com/wp-content/voice_images/recommend/s_upfile1.jpg" alt="吉田先生"></div><q class="grad">とても優しく<br>信頼できる先生です</q><p class="nm">ryo yoshida</p></div>
+    <div class="ex"><p class="role grad">わかば整骨院・柔道整復師・鍼灸師</p><div class="ph"><img src="https://sendai-family-seikotsuin.com/wp-content/voice_images/recommend/s_upfile2.jpg" alt="細谷先生"></div><q class="grad">あなたの人生を<br>より良く快適に</q><p class="nm">takahiro hosoya</p></div>
+    <div class="ex"><p class="role grad">バランス・ラボ整骨院 院長</p><div class="ph"><img src="https://sendai-family-seikotsuin.com/wp-content/voice_images/recommend/s_upfile3.jpg" alt="新藤先生"></div><q class="grad">間違いない<br>知識と技術です</q><p class="nm">koichi shindo</p></div>
+    <div class="ex"><p class="role grad">ヴォスクオーレ仙台</p><div class="ph"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2017/04/c804bb29b6804cd8db51930e63a6b18a.jpg" alt="ヴォスクオーレ仙台" style="object-position:center"></div><q class="grad">プロフットサル<br>選手のケアを担当</q><p class="nm">medical partner</p></div>
+  </div>
+  <div class="more"><a href="#voice" class="pill"><span class="en grad">More</span><i class="grad">→</i></a></div>
+</section>
+
+<!-- message -->
+<section class="msg" id="message">
+  <div class="wrap msg-in">
+    <div class="cap l rv"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/860D8DF0-55B6-470B-81CA-0E9602BA1B7C.jpeg" alt="カウンセリング" style="object-position:70% center"></div>
+    <div class="msg-tx rv">
+      <h2>どこに行っても<br>良くならなかった方へ</h2>
+      <p>「何件も通ったのに変わらない」「一時的に楽になっても、結局ぶり返す」。そんな方こそ、一度ご相談ください。</p>
+      <p>症状の本当の原因は人それぞれ。当院では、</p>
+      <ul><li>背骨のゆがみ</li><li>筋肉の緊張</li><li>重心バランス</li><li>関節のズレ</li><li>神経の圧迫</li></ul>
+      <p>などを総合的にみて、あなたに合ったアプローチで根本改善へ導きます。</p>
+      <p>あなたのその症状も、まだ間に合います。</p>
+    </div>
+    <div class="cap r rv"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/75243D8E-1B0F-4017-B41B-34B3AC9F7C95.jpeg" alt="施術" style="object-position:60% center"></div>
+  </div>
+</section>
+
+<!-- points -->
+<section class="points wrap" id="points">
+  <div class="pt rv">
+    <div class="pt-img"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/D51991E8-6587-4F0B-BF93-F73924032FC8.jpeg" alt="説明"></div>
+    <div><p class="pt-num grad">01</p><h3>初回は90分。<br>原因を見つけるところから。</h3><p>カウンセリングと検査に30分以上かけて、痛みの原因をていねいに探します。時間をかけるのは、お一人おひとりと向き合い、信頼関係を築くことが何より大切だと考えているからです。</p></div>
+  </div>
+  <div class="pt rv">
+    <div class="pt-img"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/86F891E2-0BA7-4FD6-817B-18FB54BA96C4.jpeg" alt="施術"></div>
+    <div><p class="pt-num grad">02</p><h3>国家資格をもつ施術家が<br>完全予約制・個別で担当。</h3><p>業界歴12年・3万件以上の実績をもつ院長をはじめ、国家資格をもつスタッフが担当。バキバキと力任せにしない、からだにやさしい施術です。お待たせすることもありません。</p></div>
+  </div>
+  <div class="pt rv">
+    <div class="pt-img"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/C0F3A499-0F3D-4234-ADFF-29FD70837380.jpeg" alt="アフターケア"></div>
+    <div><p class="pt-num grad">03</p><h3>施術のあとも、<br>LINEでいつでも相談できる。</h3><p>ご自宅でのセルフケアや過ごし方もお伝えします。「こんなときどうすれば？」も、LINEで365日ご相談OK。プロアスリートのケアで培った知識で、再発しにくいからだづくりをサポートします。</p></div>
+  </div>
+</section>
+
+<!-- menu -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="en grad">Menu</span><h2>施術メニュー</h2></div>
+    <div class="cards">
+      <a href="#price" class="card rv"><div class="im"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/136EFBFB-9DB5-4104-B4CF-FBEDAE7B0F8F.jpeg" alt=""></div><div class="bd"><h3>整体・骨盤調整</h3><p>腰痛・肩こり・坐骨神経痛・ヘルニアなど、長引く痛みやしびれを根本から整えます。</p><span class="en">Chiropractic →</span></div></a>
+      <a href="#price" class="card rv"><div class="im"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/02A45A14-E572-469B-9BE7-270579F083C9.jpeg" alt=""></div><div class="bd"><h3>スポーツ障害</h3><p>野球肩・ランナー膝・シンスプリント・足底筋膜炎など。安静で良くならないケガのケアと復帰サポート。</p><span class="en">Sports →</span></div></a>
+      <a href="#price" class="card rv"><div class="im"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/26F165EE-F215-4BCF-8EF2-283023B54D3C.jpeg" alt=""></div><div class="bd"><h3>交通事故・むちうち</h3><p>事故のあとの首・肩・腰の痛みに対応。保険の手続きのご相談もお気軽に。</p><span class="en">Accident →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- price -->
+<section class="price" id="price">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="en grad">Price</span><h2>料金について</h2></div>
+    <div class="camp rv">
+      <span class="tag">期間限定・先着10名さま</span>
+      <h3>根本改善<br>整体＆骨盤調整コース</h3>
+      <p class="sm">カウンセリング・検査＆施術</p>
+      <p class="yen">初回90分 <s>8,800円</s> → <b class="grad">980</b>円</p>
+      <p class="note">※全て税込価格</p>
+    </div>
+    <div class="plist rv">
+      <div class="prow"><div><h4>整体コース</h4><p>からだ全体のバランスをみて、痛みの原因にアプローチします</p></div><p class="v">8,800<small>円（税込）</small></p></div>
+      <div class="prow"><div><h4>プレミアム整体コース</h4><p>最先端の機器も組み合わせ、長引く症状を集中的にケア</p></div><p class="v">要相談</p></div>
+      <div class="prow"><div><h4>保険施術</h4><p>急なケガ（捻挫・打撲など）や交通事故は保険適用で施術できます</p></div><p class="v">保険適用</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- voice -->
+<section class="voice" id="voice">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="en grad">Voice</span><h2>お客さまの声</h2></div>
+    <div class="vgrid">
+      <article class="vc rv"><div class="im"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/e1e16d74-f0cb-451f-94f6-fa11837c171d-300x225.jpg" alt=""></div><h3>手術しかないと思っていたのに、また走れるように</h3><p>ヘルニアで左足に力が入らず、走ることもできなくなりました。原因をしっかり確認してもらい、姿勢や体の使い方の宿題にも取り組んだところ、今ではしびれもなく走れています。</p><p class="who">50代 男性・仙台市</p></article>
+      <article class="vc rv"><div class="im"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/line_oa_chat_240424_085712-300x225.jpg" alt=""></div><h3>手術をしなくても、日常生活がぐっと楽に</h3><p>股関節の痛みで足を引きずり、夜も目が覚めるほど。毎回の親身な説明とていねいな施術で、少しずつ痛みが軽くなりました。手術の前に一度相談してほしいです。</p><p class="who">50代 女性・多賀城市</p></article>
+      <article class="vc rv"><div class="im"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2024/08/line_oa_chat_250911_091310-300x225.jpg" alt=""></div><h3>痛みがなくなり、大好きな水泳を再開</h3><p>ヘルニアと言われ、薬や電気をしても変わらず不安な毎日。施術を受けるうちに歩ける距離が伸び、今では以前のように1時間泳げるまでになりました。</p><p class="who">20代 女性・仙台市</p></article>
+    </div>
+    <p class="disc">※効果には個人差があります</p>
+    <div class="more"><a href="#" class="pill"><span class="en grad">More Voice</span><i class="grad">→</i></a></div>
+  </div>
+</section>
+
+<!-- director -->
+<section class="dir" id="staff">
+  <div class="wrap dir-in">
+    <div class="dir-ph rv">
+      <div class="main"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/860D8DF0-55B6-470B-81CA-0E9602BA1B7C.jpeg" alt="院長 濱口祥太"></div>
+      <div class="sub"><img src="https://sendai-family-seikotsuin.com/wp-content/uploads/2017/04/ca8baf5ffe8cb7a4d5d32ecfef49ab09-e1680768940649.jpg" alt="救護活動"></div>
+    </div>
+    <div class="rv">
+      <p class="role">院長・柔道整復師</p>
+      <h3>濱口 祥太</h3>
+      <p class="ruby en">shota hamaguchi</p>
+      <p>小学生のころ、股関節の痛みで松葉杖生活。何件も病院をまわっても「安静」と「湿布」ばかりで、大好きな運動をあきらめた経験があります。</p>
+      <p>「動きたいのに、動けない」。そんな思いをする人を一人でも減らしたくて、この道を選びました。今はロードバイクで泉ヶ岳や蔵王を上るのが趣味です。</p>
+      <dl>
+        <dt>資格</dt><dd>柔道整復師／機能訓練指導員</dd>
+        <dt>業界歴</dt><dd>12年</dd>
+        <dt>得意な施術</dt><dd>慢性症状、安静で改善しないスポーツ障害</dd>
+        <dt>活動</dt><dd>ヴォスクオーレ仙台 トレーナー、東北シクロクロス救護 ほか</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- reserve -->
+<section class="rsv" id="reserve">
+  <span class="en rv">Reserve</span>
+  <h2 class="rv">ご予約・お問い合わせ</h2>
+  <div class="rsv-btns wrap rv">
+    <a href="tel:0222092337"><small>お電話でのご予約</small><b>022-209-2337</b></a>
+    <a href="#"><small>24時間受付</small><b class="jp">LINEでご予約</b></a>
+  </div>
+  <p class="memo rv">完全予約制です。施術中はお電話に出られないことがあります。</p>
+</section>
+
+<!-- footer -->
+<footer class="ft" id="access">
+  <div class="wrap">
+    <div class="ft-in">
+      <div class="rv">
+        <p class="logo">せんだいファミリー整骨院<small>sendai family clinic</small></p>
+        <address>〒980-0011<br>仙台市青葉区上杉5丁目2-20<br>第十一ショーケービル111号室<br>「北四番丁」駅 徒歩12分／「東照宮」駅 徒歩13分<br>駐車場あり</address>
+        <a href="tel:0222092337" class="tel grad">022-209-2337</a>
+      </div>
+      <div class="rv">
+        <table class="hours">
+          <tr><th>受付時間</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th></tr>
+          <tr><td>9:00 - 13:00</td><td class="o">●</td><td class="o">●</td><td class="o">●</td><td class="o">●</td><td class="o">●</td><td class="o">●</td><td>ー</td></tr>
+          <tr><td>15:00 - 20:00</td><td class="o">●</td><td class="o">●</td><td class="o">●</td><td class="o">●</td><td class="o">●</td><td>ー</td><td>ー</td></tr>
+        </table>
+        <p class="hours-note">定休日：土曜午後・日曜・祝日</p>
+      </div>
+    </div>
+    <div class="map rv"><iframe loading="lazy" src="https://maps.google.com/maps?q=%E4%BB%99%E5%8F%B0%E5%B8%82%E9%9D%92%E8%91%89%E5%8C%BA%E4%B8%8A%E6%9D%895%E4%B8%81%E7%9B%AE2-20&z=16&output=embed" title="地図"></iframe></div>
+    <nav class="ft-nav">
+      <a href="#message">施術の考え方</a><a href="#points">選ばれる理由</a><a href="#menu">施術メニュー</a><a href="#price">料金</a><a href="#voice">お客さまの声</a><a href="#staff">院長紹介</a><a href="#access">アクセス</a><a href="#reserve">ご予約</a>
+    </nav>
+    <p class="copy">copyright © sendai family clinic.</p>
+  </div>
+</footer>
+
+<div class="spbar"><a href="tel:0222092337">電話する</a><a href="#reserve">LINEで予約</a></div>
+
+<script>
+document.documentElement.classList.add('js');
+// ?shot=1 のときは全体スクショ用（ヒーローの高さを固定し、ふわっと出る動きを止める）
+if(location.search.includes('shot')){
+  document.head.insertAdjacentHTML('beforeend','<style>.hero{height:800px!important;min-height:0!important}@media (max-width:900px){.hero{height:740px!important}}.js .rv{opacity:1!important;transform:none!important;transition:none!important}.hero-img,.fl,.track{animation:none!important}</style>');
+}
+
+// header
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+// floating photos around the vertical copy
+const U='https://sendai-family-seikotsuin.com/wp-content/uploads/2023/04/';
+const photos=['86F891E2-0BA7-4FD6-817B-18FB54BA96C4','8B91F81C-938A-4B84-BAC1-8CDD24833B1D','D51991E8-6587-4F0B-BF93-F73924032FC8','02A45A14-E572-469B-9BE7-270579F083C9','C0F3A499-0F3D-4234-ADFF-29FD70837380','E9A4CA18-8DC5-4270-BF7E-015EB43C63C1','860D8DF0-55B6-470B-81CA-0E9602BA1B7C','136EFBFB-9DB5-4104-B4CF-FBEDAE7B0F8F','75243D8E-1B0F-4017-B41B-34B3AC9F7C95'];
+// [left%, top%, width px, delay s]
+const spots=[[3,14,210,0],[19,8,130,1.4],[13,52,110,3],[2,66,170,2.1],[24,74,120,.6],[70,10,110,2.6],[66,40,140,.9],[82,24,230,1.8],[78,68,150,3.4]];
+const box=document.getElementById('reasonFloat');
+spots.forEach(([l,t,w,d],i)=>{
+  const el=document.createElement('div');
+  el.className='fl rv';
+  el.style.cssText=`left:${l}%;top:${t}%;--w:${w}px;animation-delay:${d}s`;
+  el.innerHTML=`<img src="${U}${photos[i]}.jpeg" alt="" loading="lazy">`;
+  box.appendChild(el);
+});
+
+// loop the expert slider seamlessly
+const tr=document.getElementById('track');
+tr.innerHTML+=tr.innerHTML;
+
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
